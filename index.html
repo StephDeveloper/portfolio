@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stéphane | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ---------font-------- -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+    <!-- --------- FAVICON -------- -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    
+    <!-- ---------icons--------- -->
+    <script src="https://kit.fontawesome.com/e558851c81.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- -----------Header------------ -->
+    <header id="header">
+        <div class="navigation">
+            <nav class="menu" id="headerNavigation">
+                <h2><a href="#header">stephane</a></h2>
+                <ul id="sidemenu">
+                    <li><a href="#header" class="selection active" onclick="activeDesactive()">Accueil</a></li>
+                    <li><a href="#about" class="selection" onclick="activeDesactive()">A propos</a></li>
+                    <li><a href="#services" class="selection" onclick="activeDesactive()">Services</a></li>
+                    <li><a href="#contact" class="selection" onclick="activeDesactive()">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+        </div>
+        <section class="presentation">
+            <div>
+                <h1 class="salutation"><span class="typedText"></span><br> 
+                </h1>
+                <p class="sub-title">Pour tout vos besoins de sites internet responsives et ergonomiques,<br class="retourLigne"> vous êtes au bon endroit.</p>
+                <a href="docs/CV N'DA YAO STEPHANE.pdf" download class="btn">Télécharger CV</a>
+            </div>
+            <div class="image">
+                <img src="images/Stephy.jpg" alt="Steph Photo">
+            </div>
+        </section>
+    </header>
+    <main id="corps">
+        <div class="defiler">
+            <a href="#about" class="btnScroll"><i class="fa-solid fa-arrow-down fa-beat"></i></a>
+        </div>
+        <!-- -----------A propos------------ -->
+        <section id="about">
+            <h1>A propos</h1>
+            <div class="row-about">
+                <div class="description">
+                    Développeur depuis 3 ans, j'ai acquis des compétences techniques dans la création d'applications web. J'ai également de solides compétences dans le métier du Test Logiciel.
+                </div>
+                <div class="tab-titles">
+                    <div class="sub-title-tab">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Compétences</p>
+                        <p class="tab-links" onclick="opentab('experience')">Expérience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web Development</span><br>Développement d'applications web responsives par utilisation de langages usuels de programmation et de Framework.</li>
+                            <li><span>Génie Logiciel</span><br>Création d'applications Client/Serveur</li>
+                            <li><span>Testeur Logiciel</span><br>Conception et exécution de cas de Test jusqu'à la rédaction de fiches d'anomalies</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2022 - Aujourd'hui</span><br>Consultant junior en développement d'applications à PM-PROJECTS</li>
+                            <li><span>2022 - 2023</span><br>Stagiaire Testeur Junior à LETMEWIN3.</li>
+                            <li><span>2021 - 2022</span><br>Stagiaire Développeur dans la maintenance de l'application Client/Serveur de Gestion des Mission.</li>
+                            <li><span>2015</span><br>Stagiaire Assistant Développeur à CIDT Bouaké.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2021 - 2022</span><br>Formation au métier de Testeur Logiciel à LETMEWIN3</li>
+                            <li><span>2020</span><br>Formation Complémentaire Qualifiante aux métiers du Marketing Digital organisée par l'Agence Emploi Jeunes</li>
+                            <li><span>2016 - 2018</span><br>Licence en Sciences Economiques à l'Université Alassane Ouattara Bouaké</li>
+                            <li><span>2012 - 2014</span><br>BTS option Informatique Développeur d'Applications à HETEC Bouaké</li>
+                            <li><span>2012</span><br>BAC série C au Lycée Moderne Belleville Bouaké</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ------------Services---------- -->
+        <section id="services">
+            <h1>services</h1>
+            <div class="services-list">
+                <div class="services-box">
+                    <i class="fa-solid fa-globe"></i>
+                    <h2>Conception de site web</h2>
+                    <p>
+                        Conception d'interfaces conviviales, développement de fonctionnalités interactives et optimisation de performances du site grâce respectivement au langage de balisage et de feuille de style HTML et CSS et du PHP et Javascript.
+                        Utilisation 
+                    </p>
+                </div>
+                <div class="services-box">
+                    <i class="fa-solid fa-code"></i>
+                    <h2>application web</h2>
+                    <p>
+                        Création d'applications web interactives incluant des fonctionnalités telles que des formulaires en ligne, des systèmes de réservation, des fonctionnalités de commerce électronique et d'autres fonctionnalités personnalisées.
+                    </p>
+                </div>
+                <div class="services-box">
+                    <i class="fa-solid fa-shuffle"></i>
+                    <h2>maintenance et mise à jour</h2>
+                    <p>
+                        Maintenance continue d'un site web, en effectuant des mises à jour, en résolvant les problèmes techniques et en fournissant un support technique aux utilisateurs. Sauvegardes régulières du site web pour assurer la sécurité des données.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- --------- Contant --------- -->
+        <section id="contact">
+            <h1>Contact</h1>
+            <div class="contact-container">
+                <div class="meContacter">
+                    <h3 class="titreBox-1">Mes coordonnées</h3>
+                    <p><i class="fa-solid fa-paper-plane"></i> ndayste@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +255 07 78 76 6119</p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/stephane-nda" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <!-- <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-instagram"></i></a> -->
+                    </div>
+                </div>
+                <div class="renseignForm">
+                    <form name="contact-form">
+                        <input type="text" name="name" placeholder="Votre Nom" required>
+                        <input type="email" name="email" placeholder="Votre Email" required>
+                        <textarea name="message" rows="6" placeholder="Votre Message"></textarea>
+                        <div class="alignement">
+                            <button type="submit" class="btn" id="soumettreForm">Envoyer</button>
+                        </div>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- -----------Pied de page---------- -->
+    <footer id="pied-de-page">
+        <p>&copy; Copyright <span>Stéphane</span>. Tous droits réservés.</p>
+    </footer>
+
+    <!-- --------- SCROLL REVEAL JS LINK -------- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- --------- TYPING JS LINK -------- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    
+    <!-- --------- MON SCRIPT PRINCIPAL -------- -->
+    <script src="main.js" type="text/javascript"></script>
+</body>
+</html>
