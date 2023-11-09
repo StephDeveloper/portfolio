@@ -20,7 +20,7 @@ function headerShadow() {
 
 /* ------ TYPING EFFECT ------ */
 var typingEffect = new Typed(".typedText", {
-    strings : ["Hello, je suis Stéphane N'DA","Développeur Web","Je suis aussi Testeur QA.", "Je vous souhaite la bienvenu."],
+    strings : ["Hello, je suis Stéphane N'DA","Développeur Web","Je suis aussi Testeur QA", "Je vous souhaite la bienvenu."],
     Loops : true,
     // typeSpeed : 100,
     // backSpeed : 80, 
@@ -61,9 +61,33 @@ const sr = ScrollReveal({
     reset: false
 });
 
-sr.reveal('.services-box',{});
+sr.reveal('.services-box',{ interval: 200 });
 sr.reveal('.row-about',{});
-sr.reveal('.contact-container',{});
+
+const srLeft = ScrollReveal({
+    origin: 'left',
+    distance: '80px', 
+    duration: 2000,
+    reset: false
+});
+
+srLeft.reveal('.work',{ delay: 100 });
+
+const srRight = ScrollReveal({
+    origin: 'right',
+    distance: '80px', 
+    duration: 2000,
+    reset: false
+});
+srRight.reveal('.skills-box',{ delay: 100 });
+
+const srBottom = ScrollReveal({
+    origin: 'bottom',
+    distance: '80px', 
+    duration: 2000,
+    reset: false
+});
+srBottom.reveal('.contact-container',{});
 
 
 /* ------ ## -- TRAITEMENT FORMULAIRE CONTACT -- ## ------ */
