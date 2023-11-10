@@ -63,12 +63,11 @@ nav ul li a:hover {
 .presentation img{
     width: 350px;
     height: 45vh;
-    /* height: 350px; */
     border-radius: 50%;
     animation: imageAnimation 2s;
 }
 .image {
-    animation: imageFloat 5s infinite;
+    animation: imageFloat 4s infinite;
 }
 .salutation{
     font-family: 'Jost', sans-serif;
@@ -477,6 +476,9 @@ form input, form textarea {
     font-size: 16px;
     border-radius: 6px;
 }
+textarea{
+    resize: none;    
+}
 .alignement{
     text-align: center;
 }
@@ -492,6 +494,9 @@ form input, form textarea {
 #pied-de-page span{
     font-weight: 600;
 }
+nav .fa-solid{
+    display: none;
+}
 
 @keyframes imageAnimation {
     from{
@@ -504,13 +509,10 @@ form input, form textarea {
 
 @keyframes imageFloat {
     50% {
-        transform: translateY(20px);
+        transform: scale(1.05);
     }
 }
 
-nav .fa-solid{
-    display: none;
-}
 /* -----------------MEDIA QUERY------------------ */
 
 @media only screen and (max-width: 1329px) {
@@ -558,6 +560,9 @@ nav .fa-solid{
     }
     #pied-de-page{
         padding: 30px 50px;
+    }
+    .skills-header{
+        margin-right: 50px;
     }
 }
 
@@ -872,6 +877,19 @@ nav .fa-solid{
     .row-about{
         padding: 0 20px;
     }
+    .col{
+        margin-left: -70px;
+        flex-direction: column;
+        /* width: 300px; */
+        width: calc(100% - 30px);
+    }
+    .skills-header{
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .col .skills-box:nth-child(1), .col .skills-box:nth-child(2){
+        margin-bottom: 35px;
+    }
 }
 @media only screen and (max-width: 483px) {
     .image{
@@ -893,9 +911,6 @@ nav .fa-solid{
     }
     .salutation{
         line-height: 40px;
-    }
-    .col{
-        margin-left: -70px;
     }
 }
 @media only screen and (max-width: 435px) {
@@ -956,7 +971,7 @@ nav .fa-solid{
         transition: right 0.5s;
     }
     .salutation{
-        line-height: 40px;
+        line-height: 30px;
     }
     a.btn{
         margin-left: calc(18%);
@@ -988,10 +1003,13 @@ nav .fa-solid{
         transition: right 0.5s;
     }
     .salutation{
-        line-height: 40px;
+        line-height: 30px;
     }
     a.btn{
         margin-left: calc(14%);
+    }
+    .skills-box{
+        width: 250px;
     }
 }
 @media only screen and (max-width: 350px) {
