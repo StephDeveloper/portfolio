@@ -302,6 +302,47 @@ button.btn {
     background-color: #47B2E4;
 }
 
+.presentation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.image-container {
+    position: relative;
+    margin-top: 7rem;
+}
+
+.rectangle-border {
+    width: 300px;
+    height: 400px;
+    border: 10px solid #fff;
+    position: relative;
+}
+
+.presentation-image {
+    /* width: 280px; */
+    /* height: 380px; */
+    width: 297px;
+    height: 395px;
+    object-fit: cover;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+}
+
+@media (max-width: 768px) {
+    .presentation {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .image-container {
+        margin-top: 3rem;
+    }
+}
+
 /* ----------A propos----------- */
 #about{
     position: relative;
@@ -2133,5 +2174,3 @@ nav .fa-solid{
         font-size: 2rem;
     }
 }
-
-
