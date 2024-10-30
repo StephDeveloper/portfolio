@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 loop: true
             });
         }, 500);
+
+        setTimeout(function() {
+            sr.reveal('.rectangle-border', {});
+            sr.reveal('.presentation-image', {});
+        }, 50);
     }, 4000);
 });
 

@@ -210,11 +210,12 @@ header.switch-background::after {
     text-decoration: none;
 }
 
-.presentation{
-    color: #fff;
+.presentation {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    color: #fff;
     padding: 0 100px;
     height: calc(100vh - 80px); /* Ajustez en fonction de la hauteur de votre navigation */
 }
@@ -300,13 +301,6 @@ button.btn {
     border-radius: 30px;
     border: 1px solid white;
     background-color: #47B2E4;
-}
-
-.presentation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
 }
 
 .image-container {
