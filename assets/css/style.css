@@ -4,6 +4,20 @@
     --background-color: #f8fafc;
     --text-color: #1e293b;
     --card-background: #ffffff;
+    --timeline-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --footer-bg: linear-gradient(to right, #1e293b, #1a1a1a);
+}
+
+[data-theme="dark"] {
+    --background-color: #0f172a;
+    --text-color: #e2e8f0;
+    --card-background: #1e293b;
+    --timeline-bg: #1e293b;
+    --border-color: #334155;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --footer-bg: linear-gradient(to right, #020617, #000000);
 }
 
 * {
@@ -1517,5 +1531,123 @@ input:focus, textarea:focus {
 
     .hero-social {
         justify-content: flex-start;
+    }
+}
+
+/* Ajoutez ces styles pour le bouton de changement de thème */
+.theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--card-background);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Ajustements pour le mode sombre */
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+[data-theme="dark"] .contact {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+[data-theme="dark"] .contact-item {
+    background: #1e293b;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background: #1e293b;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .skill-card::before {
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Mise à jour des styles des boutons CTA */
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Style pour le bouton primary (Télécharger CV) */
+.cta-buttons .btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.cta-buttons .btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Style pour le bouton secondary (Me contacter) avec effet de remplissage */
+.cta-buttons .btn.secondary {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.cta-buttons .btn.secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.cta-buttons .btn.secondary:hover {
+    color: #fff;
+}
+
+.cta-buttons .btn.secondary:hover::before {
+    width: 100%;
+}
+
+/* Ajustement pour le responsive */
+@media (max-width: 480px) {
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        text-align: center;
     }
 }

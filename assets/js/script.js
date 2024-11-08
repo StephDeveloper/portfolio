@@ -238,4 +238,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(errorMessage);
             });
     });
+
+    // Gestion du thème sombre/clair
+    function setupThemeToggle() {
+        // Créer le bouton de changement de thème
+        const themeToggle = document.createElement('button');
+        themeToggle.className = 'theme-toggle';
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        document.body.appendChild(themeToggle);
+
+        // Vérifier le thème enregistré
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        // Gérer le changement de thème
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+
+            // Animation du bouton
+            themeToggle.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1)';
+            }, 200);
+        });
+    }
+
+    // Mettre à jour l'icône du bouton
+    function updateThemeIcon(theme) {
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (themeToggle) {
+            themeToggle.innerHTML = theme === 'dark' 
+                ? '<i class="fas fa-sun"></i>' 
+                : '<i class="fas fa-moon"></i>';
+        }
+    }
+
+    // Appelez cette fonction dans votre DOMContentLoaded
+    setupThemeToggle();
 }); 
