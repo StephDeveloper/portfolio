@@ -52,31 +52,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialisation de ScrollReveal
+    // Configuration de ScrollReveal
     const sr = ScrollReveal({
-        origin: 'bottom',
         distance: '60px',
-        duration: 1000,
-        delay: 200,
-        reset: true
+        duration: 2000,
+        delay: 400,
+        reset: false
     });
 
-    const srStephy = ScrollReveal({
-        origin: 'top',
-        distance: '60px',
-        duration: 1000,
-        delay: 200,
-        reset: true
+    // Fonction pour initialiser toutes les animations
+    function initializeAnimations() {
+        // Animations de base
+        sr.reveal('.hero-left', { origin: 'left' });
+        sr.reveal('.hero-right', { origin: 'right' });
+        sr.reveal('.about h2', { origin: 'top' });
+        sr.reveal('.tabs', { origin: 'bottom' });
+        
+        // Animations des sections
+        const sections = [
+            { selector: '.skills h2', options: { origin: 'top' } },
+            { selector: '.skill-card', options: { origin: 'bottom', interval: 200 } },
+            { selector: '.services h2', options: { origin: 'top' } },
+            { selector: '.service-card', options: { origin: 'bottom', interval: 200 } },
+            { selector: '.contact h2', options: { origin: 'top' } },
+            { selector: '.contact-info', options: { origin: 'left' } },
+            { selector: '.contact-form', options: { origin: 'right' } }
+        ];
+
+        sections.forEach(section => {
+            const elements = document.querySelectorAll(section.selector);
+            if (elements.length > 0) {
+                sr.reveal(section.selector, section.options);
+            }
+        });
+    }
+
+    // Gestion des onglets avec nouvelle approche pour les animations
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Retirer la classe active
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Ajouter la classe active
+            btn.classList.add('active');
+            const tabId = btn.getAttribute('data-tab');
+            const activeContent = document.getElementById(tabId);
+            activeContent.classList.add('active');
+
+            // Révéler les éléments de la timeline dans l'onglet actif
+            const timelineItems = activeContent.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Forcer le recalcul des animations ScrollReveal pour les sections suivantes
+            ScrollReveal().sync();
+        });
     });
 
-    // Animations ScrollReveal
-    sr.reveal('.hero-content', {});
-    sr.reveal('.skill-card', { interval: 200 });
-    sr.reveal('.project-card', { interval: 200 });
-    sr.reveal('.about-content', {});
-    srStephy.reveal('.hero-right', {});
-    sr.reveal('.service-card', { interval: 200 });
-    sr.reveal('.contact-container', {});
+    // Initialisation des animations au chargement
+    initializeAnimations();
 
     // Animation du typingText
     setTimeout(() => {
@@ -130,49 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 stagger: 0.1
             });
         }
-    });
-
-    // Gestion des onglets
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    // Fonction pour activer un onglet
-    function activateTab(tabId) {
-        // Masquer tous les contenus et désactiver tous les boutons
-        tabContents.forEach(content => {
-            content.style.display = 'none';
-            content.classList.remove('active');
-        });
-        tabBtns.forEach(btn => btn.classList.remove('active'));
-
-        // Activer l'onglet sélectionné
-        const selectedContent = document.getElementById(tabId);
-        const selectedBtn = document.querySelector(`[data-tab="${tabId}"]`);
-        
-        selectedContent.style.display = 'block';
-        selectedContent.classList.add('active');
-        selectedBtn.classList.add('active');
-    }
-
-    // Ajouter les écouteurs d'événements aux boutons
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const tabId = btn.getAttribute('data-tab');
-            activateTab(tabId);
-        });
-    });
-
-    // Activer le premier onglet par défaut
-    activateTab('experience');
-
-    // Animation de la timeline au scroll
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    
-    sr.reveal('.timeline-item', {
-        origin: 'bottom',
-        distance: '50px',
-        duration: 1000,
-        interval: 200
     });
 
     // Initialisation de EmailJS
