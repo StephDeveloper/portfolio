@@ -159,20 +159,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animation du menu burger améliorée
     const burgerMenu = document.querySelector('.burger-menu');
-    // const navLinks = document.querySelector('.nav-links');
-    
+    const navLink = document.querySelector('.nav-links');
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+
     burgerMenu.addEventListener('click', () => {
         burgerMenu.classList.toggle('active');
-        navLinks.classList.toggle('active');
+        navLink.classList.toggle('active');
         
-        if (navLinks.classList.contains('active')) {
-            gsap.from('.nav-links a', {
-                y: 50,
-                opacity: 0,
-                duration: 0.3,
-                stagger: 0.1
+        // Animation des liens
+        if (navLink.classList.contains('active')) {
+            navLinksItems.forEach((link, index) => {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index * 0.1 + 0.2}s`;
+            });
+        } else {
+            navLinksItems.forEach(link => {
+                link.style.animation = '';
             });
         }
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            burgerMenu.classList.remove('active');
+            navLink.classList.remove('active');
+            navLinksItems.forEach(link => {
+                link.style.animation = '';
+            });
+        });
     });
 
     // Initialisation de EmailJS
