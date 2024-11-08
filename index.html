@@ -3,317 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil | Stéphane N'DA</title>
+    <title>Stéphane N'DA | Portfolio</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <!-- MON STYLE CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- ---------FONT-------- -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-
-    <!-- --------- FAVICON -------- -->
-    <!-- <link rel="shortcut icon" href="assets/images/stephy-ico.png" type="image/x-icon"> -->
+    <!-- FAVICON -->
     <link rel="shortcut icon" href="assets/images/stephy-ico.png" type="image/x-icon">
-    
-    <!-- ---------ICONS--------- -->
-    <script src="https://kit.fontawesome.com/e558851c81.js" crossorigin="anonymous"></script>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- SCROLL REVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
-    <!-- loader from uiverse.io by mrhyddenn -->
-    <div class="loader">
-        <span>Stéphane</span>
-        <span>Stéphane</span>
-    </div>
-    <!-- -----------HEADER------------ -->
-    <header id="header">
-        <div class="navigation">
-            <nav class="menu" id="headerNavigation">
-                <div class="logo-container">
-                    <a href="#header">
-                        <img src="assets/images/stephy.jpg" alt="Stéphane" class="profile-image" id="profileImage">
-                    </a>
-                    <h2><a href="#header">stephane</a></h2>
-                </div>
-                <ul id="sidemenu">
-                    <li><a href="#header" class="selection active">Accueil</a></li>
-                    <li><a href="#about" class="selection">A propos</a></li>
-                    <li><a href="#services" class="selection">Services</a></li>
-                    <li><a href="#contact" class="selection">Contact</a></li>
-                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
-                </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
-            </nav>
-        </div>
-        <section class="presentation">
-            <div>
-                <h3 class="salutation">Hello, je suis <span class="typed-words">Stéphane N'DA</span> <br></h3>
-                <h1 class="typed-words"><span class="typedText"></span><br></h1>
-                <p class="sub-title">Pour tout vos besoins de sites internet responsives et ergonomiques,<br class="retourLigne"> vous êtes au bon endroit.</p>
-                <a class="btn" href="docs/CV_STEPHANE_N'DA.pdf" download>Télécharger CV</a>
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-line-mask">
+                <div class="loader-line"></div>
             </div>
-            
-            <div class="image-container">
-                <div class="rectangle-border"></div>
-                <img src="assets/images/stephy.jpg" alt="Stéphane" class="presentation-image">
+        </div>
+        <div class="loader-text">Stéphane</div>
+    </div>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="assets/images/stephy-ico.png" alt="Stéphane">
+                </div>
+                <span class="logo-text">Stéphane.</span>
+            </div>
+            <div class="nav-links">
+                <a href="#accueil" class="active">Accueil</a>
+                <a href="#apropos">À propos</a>
+                <a href="#competences">Compétences</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="burger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+
+        <section id="accueil" class="hero">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h3>Hello, je suis</h3>
+                    <h1>Stéphane N'DA</h1>
+                    <div class="typing-container">
+                        <p class="typing-text"></p>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://www.linkedin.com/in/stephane-nda" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="doc/CV_STEPHANE_N'DA.pdf" class="btn primary" download><i class="fa-solid fa-download"></i> Télécharger mon CV</a>
+                        <a href="#contact" class="btn secondary">Me contacter</a>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="profile-image">
+                        <img src="assets/images/stephy.jpg" alt="Photo de profil">
+                    </div>
+                </div>
             </div>
         </section>
     </header>
-    <main id="corps">
-        <!-- -----------A PROPOS------------ -->
-        <section id="about">
-            <h1>A propos</h1>
-            <div class="row-about">
-                <div class="about-left">
-                    <div class="description">
-                        Développeur depuis 3 ans, j'ai acquis des compétences techniques dans la création d'applications web. J'ai également de solides compétences dans le métier du Test Logiciel.
-                    </div>
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" data-tab="skills">
-                            <i class="fas fa-code"></i> Compétences
-                        </button>
-                        <button class="tab-btn" data-tab="experience">
-                            <i class="fas fa-briefcase"></i> Expérience
-                        </button>
-                        <button class="tab-btn" data-tab="education">
-                            <i class="fas fa-graduation-cap"></i> Education
-                        </button>
-                    </div>
-                </div>
-                <div class="about-right">
-                    <div class="tab-content active" id="skills">
-                        <div class="card">
-                            <h3>Développement Web</h3>
-                            <p>Développement d'applications web responsives par utilisation de langages usuels de programmation et de Framework.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Génie Logiciel</h3>
-                            <p>Création d'applications Client/Serveur</p>
-                        </div>
-                        <div class="card">
-                            <h3>Testeur Logiciel</h3>
-                            <p>Conception et exécution de cas de Test jusqu'à la rédaction de fiches d'anomalies</p>
+    
+    <section id="apropos" class="about">
+        <h2>À propos de moi</h2>
+        <div class="about-content">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="experience"><i class="fa-solid fa-briefcase"></i> Expérience</button>
+                <button class="tab-btn" data-tab="parcours"><i class="fa-solid fa-code"></i> Compétences</button>
+                <button class="tab-btn" data-tab="formation"><i class="fa-solid fa-graduation-cap"></i> Formation</button>
+            </div>
+            
+            <div class="tab-content active" id="experience">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>2023 - Présent</h3>
+                            <h4>Développeur Full Stack <br> HN ACIS</h4>
+                            <p>Développement d’une application web d’audit interne : Conception front-end avec Angular, création d’API REST en Laravel et intégration d’une base de données MySQL.</p>
                         </div>
                     </div>
-                    <div class="tab-content" id="experience">
-                        <div class="card">
-                            <h3>2022 - Aujourd'hui</h3>
-                            <p>Consultant junior en développement d'applications à PM-PROJECTS</p>
-                        </div>
-                        <div class="card">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
                             <h3>2022 - 2023</h3>
-                            <p>Stagiaire Testeur Junior à LETMEWIN3.</p>
+                            <h4>Développeur VB.net <br> PM-PROJECTS</h4>
+                            <p>Consultant junior en développement d'applications</p>
                         </div>
-                        <div class="card">
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>2022 - 2023</h3>
+                            <h4>Stagiaire Testeur Junior <br> LETMEWIN3</h4>
+                            <p>Conception et exécution de cas de test pour l’application SmartBill en environnement Agile/Scrum, rédaction de fiches d’anomalies et automatisation des tests avec Alithya GoTest.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
                             <h3>2021 - 2022</h3>
+                            <h4>Stagiaire Développeur VB.net <br> PM-PROJECTS</h4>
                             <p>Stagiaire Développeur dans la maintenance de l'application Client/Serveur de Gestion des Mission.</p>
                         </div>
-                        <div class="card">
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
                             <h3>2015</h3>
+                            <h4>Stagiaire Assistant Développeur <br> CIDT</h4>
                             <p>Stagiaire Assistant Développeur à CIDT Bouaké.</p>
                         </div>
                     </div>
-                    <div class="tab-content" id="education">
-                        <div class="card">
+                </div>
+            </div>
+
+            <div class="tab-content" id="parcours">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <!-- <h3>2024</h3> -->
+                            <h3>Développement web</h3>
+                            <!-- <h4>Développeur Full Stack Senior</h4> -->
+                            <p>Maîtrise des frameworks modernes et des méthodologies agiles.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Génie Logiciel</h3>
+                            <!-- <h4>Développeur Full Stack</h4> -->
+                            <p>Création d'applications Client/Serveur.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Testeur Logiciel</h3>
+                            <!-- <h4>Début en développement</h4> -->
+                            <p>Conception et exécution de cas de Test jusqu'à la rédaction de fiches d'anomalies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="formation">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
                             <h3>2021 - 2022</h3>
+                            <!-- <h4>Formation Testeur Logiciel</h4> -->
                             <p>Formation au métier de Testeur Logiciel à LETMEWIN3</p>
                         </div>
-                        <div class="card">
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
                             <h3>2020</h3>
-                            <p>Formation Complémentaire Qualifiante aux métiers du Marketing Digital organisée par l'Agence Emploi Jeunes</p>
+                            <!-- <h4>Formation</h4> -->
+                            <p>Formation Complémentaire Qualifiante aux métiers du Marketing Digital organisée par l'Agence Emploi Jeunes.</p>
                         </div>
-                        <div class="card">
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
                             <h3>2016 - 2018</h3>
-                            <p>Licence en Sciences Economiques à l'Université Alassane Ouattara Bouaké</p>
+                            <!-- <h4>Formation</h4> -->
+                            <p>Licence en Sciences Economiques à l'Université Alassane Ouattara Bouaké.</p>
                         </div>
-                        <div class="card">
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
                             <h3>2012 - 2014</h3>
-                            <p>BTS option Informatique Développeur d'Applications à HETEC Bouaké</p>
-                        </div>
-                        <div class="card">
-                            <h3>2012</h3>
-                            <p>BAC série C au Lycée Moderne Belleville Bouaké</p>
+                            <!-- <h4>Formation</h4> -->
+                            <p>BTS option Informatique Développeur d'Applications à HETEC Bouaké.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- ------------SERVICES---------- -->
-        <section id="services">
-            <h1>services</h1>
-            <div class="services-list">
-                <div class="services-box">
-                    <i class="fa-solid fa-globe"></i>
-                    <h2>Conception de site web</h2>
-                    <p>
-                        Conception d'interfaces conviviales, développement de fonctionnalités interactives et optimisation de performances du site grâce respectivement au langage de balisage et de feuille de style HTML et CSS et du PHP et Javascript.
-                        Utilisation 
-                    </p>
+        </div>
+    </section>
+    <hr>
+    <section id="competences" class="skills">
+        <h2>Mes compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS3</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-angular"></i>
+                <h3>Angular</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-php"></i>
+                <h3>PHP</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-laravel"></i>
+                <h3>Laravel</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-bootstrap"></i>
+                <h3>Bootstrap</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>SQL</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-brands fa-git"></i>
+                <h3>Git</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-brands fa-gitlab"></i>
+                <h3>GitLab</h3>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section id="services">
+        <h2>Mes Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
                 </div>
-                <div class="services-box">
-                    <i class="fa-solid fa-code"></i>
-                    <h2>application web</h2>
-                    <p>
-                        Création d'applications web interactives incluant des fonctionnalités telles que des formulaires en ligne, des systèmes de réservation, des fonctionnalités de commerce électronique et d'autres fonctionnalités personnalisées.
-                    </p>
+                <h3>Développement Web</h3>
+                <p>Création de sites web et d'applications web modernes, responsives et performantes avec les dernières technologies.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Sites vitrines</li>
+                    <li><i class="fas fa-check"></i> Applications web</li>
+                    <li><i class="fas fa-check"></i> Interfaces utilisateur</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
                 </div>
-                <div class="services-box">
-                    <i class="fa-solid fa-shuffle"></i>
-                    <h2>maintenance et mise à jour</h2>
-                    <p>
-                        Maintenance continue d'un site web, en effectuant des mises à jour, en résolvant les problèmes techniques et en fournissant un support technique aux utilisateurs. Sauvegardes régulières du site web pour assurer la sécurité des données.
-                    </p>
+                <h3>Applications Full Stack</h3>
+                <p>Développement d'applications complètes, du back-end au front-end, avec une architecture robuste et évolutive.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> API REST</li>
+                    <li><i class="fas fa-check"></i> Base de données</li>
+                    <li><i class="fas fa-check"></i> Authentification</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <h3>Maintenance & Support</h3>
+                <p>Support technique et maintenance continue pour garantir la performance et la sécurité de vos applications.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Mises à jour</li>
+                    <li><i class="fas fa-check"></i> Optimisation</li>
+                    <li><i class="fas fa-check"></i> Dépannage</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>Me contacter</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>ndayste&#64;gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-details">
+                        <h3>Téléphone</h3>
+                        <p>+225 07 78 76 6119</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-details">
+                        <h3>Localisation</h3>
+                        <p>Abidjan, Côte d'Ivoire</p>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- ------------ SKILLS DETAILS ---------- -->
-        <section id="skills-detail">
-            <h1>Développement full stack</h1>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-                        <div class="skill-info">
-                            <span>HTML5</span>
-                            <div class="progress-bar">
-                                <div class="progress" data-percent="90"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-                        <div class="skill-info">
-                            <span>CSS3</span>
-                            <div class="progress-bar">
-                                <div class="progress" data-percent="85"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <div class="progress-bar">
-                                <div class="progress" data-percent="80"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular">
-                        <div class="skill-info">
-                            <span>Angular</span>
-                            <div class="progress-bar">
-                                <div class="progress" data-percent="75"></div>
-                            </div>
-                        </div>
-                    </div>
+            <form id="contact-form" class="contact-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
                 </div>
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
-                        <div class="skill-info">
-                            <span>PHP</span>
-                            <div class="progress-bar">
-                                <div class="progress" data-percent="75"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-laravel laravel-icon"></i>
-                        <div class="skill-info">
-                            <span>Laravel</span>
-                            <div class="progress-bar">
-                                <div class="progress" data-percent="70"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required>
                 </div>
-                <div class="skill-category">
-                    <h3>Base de données</h3>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
-                        <div class="skill-info">
-                            <span>MySQL</span>
-                            <div class="progress-bar">
-                                <div class="progress" data-percent="80"></div>
-                            </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Votre message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn primary" id="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Envoyer le message
+                </button>
+            </form>
+        </div>
+    </section>
+    <!-- Modifier la section footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-profile">
+                    <img src="assets/images/stephy-ico.png" alt="Stéphane">
+                    <div class="footer-info">
+                        <h3>Stéphane N'DA</h3>
+                        <p class="footer-description">Développeur Full Stack passionné par la création d'applications web innovantes et performantes.</p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/stephane-nda" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-                        <div class="skill-info">
-                            <span>PostgreSQL</span>
-                            <div class="progress-bar">
-                                <div class="progress" data-percent="65"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- --------- CONTACT --------- -->
-        <section id="contact">
-            <h1>Contact</h1>
-            <div class="contact-container">
-                <div class="meContacter">
-                    <h3 class="titreBox-1">Mes coordonnées</h3>
-                    <p><i class="fa-solid fa-paper-plane"></i> ndayste&#64;gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i> +255 07 78 76 6119</p>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/stephane-nda" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                        <a><i class="fa-brands fa-square-facebook"></i></a>
-                        <a><i class="fa-brands fa-square-x-twitter"></i></a>
-                        <!-- <a><i class="fa-brands fa-square-instagram"></i></a> -->
-                    </div>
-                </div>
-                <div class="renseignForm">
-                    <form name="contact-form">
-                        <input type="text" name="name" placeholder="Votre Nom" required>
-                        <input type="email" name="email" placeholder="Votre Email" required>
-                        <textarea name="message" rows="6" placeholder="Votre Message"></textarea>
-                        <div class="alignement">
-                            <button type="submit" class="btn" id="soumettreForm">Envoyer</button>
-                        </div>
-                    </form>
-                    <span id="msg"></span>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- -----------Pied de page---------- -->
-    <footer id="footer">
-        <div class="footer-content">
-            <div class="footer-image">
-                <img src="assets/images/stephy.jpg" alt="Stéphane" class="footer-profile">
-            </div>
-            <div class="footer-info">
-                <h3>Stéphane N'DA</h3>
-                <p class="footer-description">Développeur Full Stack</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/stephane-nda" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a><i class="fa-brands fa-square-facebook"></i></a>
-                    <a><i class="fa-brands fa-square-x-twitter"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> <span class="steph-name">Stéphane</span>. Tous droits réservés.</p>
+            <p>&copy; 2024 Stéphane N'DA. Tous droits réservés.</p>
         </div>
     </footer>
-    
-    <!-- --------- SCROLL REVEAL JS LINK -------- -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    
-    <!-- --------- TYPING JS LINK -------- -->
-    <!-- <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script> -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    
-    <!-- --------- MON SCRIPT PRINCIPAL -------- -->
-    <script src="assets/js/main.js" type="text/javascript"></script>
 
-    <!-- --------- BOTPRESS JS LINK -------- -->
-    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2024/10/29/15/20241029154236-LQ7O2CEP.js"></script>
+    <!-- --------- MON SCRIPT PRINCIPAL -------- -->
+    <script src="assets/js/script.js"></script>
+
+    <!-- --------- TYPING JS LINK -------- -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Ajouter avant la fermeture du body -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
-</html>
+</html> 
