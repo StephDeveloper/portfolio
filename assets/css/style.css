@@ -1651,3 +1651,205 @@ input:focus, textarea:focus {
         text-align: center;
     }
 }
+
+/* Ajout des styles pour les effets parallax */
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: -1;
+    transform: translateZ(-1px) scale(2);
+}
+
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.1;
+    animation: floatAnimation 15s infinite linear;
+}
+
+.shape-1 { top: 20%; left: 10%; }
+.shape-2 { top: 60%; left: 70%; animation-delay: 2s; }
+.shape-3 { top: 40%; left: 40%; animation-delay: 4s; }
+.shape-4 { top: 80%; left: 20%; animation-delay: 6s; }
+
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(20px, 20px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Effet parallax pour les sections */
+.skills, .services, .contact {
+    position: relative;
+    perspective: 1000px;
+}
+
+.parallax-title {
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+}
+
+/* Nouveaux effets parallax améliorés */
+.parallax-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 120%;
+    height: 140%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+    transform-style: preserve-3d;
+}
+
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.08;
+    filter: blur(1px);
+    transition: all 0.3s ease;
+}
+
+/* Nouvelles formes et positions */
+.shape-1 { top: 15%; left: 5%; font-size: 2.5rem; }
+.shape-2 { top: 45%; left: 80%; font-size: 3rem; }
+.shape-3 { top: 75%; left: 15%; font-size: 2rem; }
+.shape-4 { top: 25%; left: 60%; font-size: 2.8rem; }
+.shape-5 { top: 85%; left: 70%; font-size: 2.2rem; }
+.shape-6 { top: 35%; left: 30%; font-size: 2.4rem; }
+
+/* Animation améliorée pour les formes flottantes */
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    33% {
+        transform: translate(10px, -15px) rotate(120deg) scale(1.1);
+    }
+    66% {
+        transform: translate(-15px, 10px) rotate(240deg) scale(0.9);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg) scale(1);
+    }
+}
+
+/* Effet de profondeur pour les sections */
+.parallax-section {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.layer-1 { transform: translateZ(-100px) scale(1.5); opacity: 0.1; }
+.layer-2 { transform: translateZ(-50px) scale(1.2); opacity: 0.2; }
+.layer-3 { transform: translateZ(50px) scale(0.8); opacity: 0.1; }
+
+/* Effets Parallax améliorés */
+.skill-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateZ(20px) rotateX(10deg) rotateY(10deg);
+}
+
+.skill-card i {
+    transform: translateZ(30px);
+    transition: transform 0.3s ease;
+}
+
+.service-card {
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    transition: all 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateZ(50px) scale(1.05);
+}
+
+.service-icon {
+    transform: translateZ(20px);
+    transition: all 0.4s ease;
+}
+
+.profile-image {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease;
+}
+
+.profile-image:hover {
+    transform: translateZ(30px) rotateY(-15deg);
+}
+
+/* Animation au scroll */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Effet de profondeur sur les titres */
+h2 {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+}
+
+h2:hover {
+    transform: translateZ(30px) scale(1.1);
+}

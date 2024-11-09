@@ -281,4 +281,120 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Appelez cette fonction dans votre DOMContentLoaded
     setupThemeToggle();
+
+    // Amélioration des effets parallax
+    function initEnhancedParallax() {
+        const parallaxElements = document.querySelectorAll('.parallax-bg');
+        const shapes = document.querySelectorAll('.shape');
+        const layers = document.querySelectorAll('.parallax-layer');
+        let ticking = false;
+
+        // Fonction pour l'effet de parallaxe au scroll
+        function updateParallax(scrolled) {
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                const yPos = -(scrolled * speed);
+                const rotation = scrolled * 0.03;
+                element.style.transform = `translate3d(0, ${yPos}px, 0) rotate(${rotation}deg)`;
+            });
+
+            shapes.forEach((shape, index) => {
+                const speed = shape.dataset.speed || 0.2;
+                const yPos = scrolled * (speed * 0.5);
+                const xPos = Math.sin(scrolled * 0.002 + index) * 30;
+                const rotation = scrolled * speed * 0.2;
+                const scale = 1 + Math.sin(scrolled * 0.001 + index) * 0.2;
+                shape.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) rotate(${rotation}deg) scale(${scale})`;
+            });
+
+            layers.forEach((layer, index) => {
+                const speed = (index + 1) * 0.1;
+                const yPos = scrolled * speed;
+                const xPos = Math.sin(scrolled * 0.002) * 20 * speed;
+                layer.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+            });
+        }
+
+        // Effet de parallaxe au mouvement de la souris
+        document.addEventListener('mousemove', (e) => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const mouseX = (window.innerWidth / 2 - e.clientX) / 25;
+                    const mouseY = (window.innerHeight / 2 - e.clientY) / 25;
+
+                    shapes.forEach((shape, index) => {
+                        const speed = (index + 1) * 0.08;
+                        const x = mouseX * speed;
+                        const y = mouseY * speed;
+                        shape.style.transform += ` translate(${x}px, ${y}px)`;
+                    });
+
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+        });
+
+        // Effet au scroll
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateParallax(window.pageYOffset);
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+        });
+    }
+
+    // Initialisation des effets améliorés
+    initEnhancedParallax();
+
+    // Effet parallax au scroll
+    function initParallaxEffects() {
+        const elements = document.querySelectorAll('.skill-card, .service-card, h2, .profile-image');
+        
+        // Effet de mouvement au survol de la souris
+        elements.forEach(element => {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(30px)`;
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+
+        // Animation au scroll
+        const scrollElements = document.querySelectorAll('.scroll-animate');
+        
+        function checkScroll() {
+            scrollElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Vérification initiale
+    }
+
+    // Initialisation des effets
+    initParallaxEffects();
 }); 
