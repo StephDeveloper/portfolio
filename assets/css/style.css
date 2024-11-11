@@ -746,7 +746,8 @@ input, textarea {
     color: var(--text-color);
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
+    /* min-width: 200px; */
+    min-width: 400px;
 }
 
 .tab-btn:hover {
@@ -1003,6 +1004,12 @@ input:focus, textarea:focus {
     padding: 1.2rem 2rem;
     font-size: 1.1rem;
     margin-top: 1rem;
+    border: 0 solid #fff;
+}
+
+.contact-form .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form .btn i {
