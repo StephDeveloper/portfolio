@@ -285,7 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Amélioration des effets parallax
     function initEnhancedParallax() {
         const parallaxElements = document.querySelectorAll('.parallax-bg');
-        const shapes = document.querySelectorAll('.shape');
         const layers = document.querySelectorAll('.parallax-layer');
         let ticking = false;
 
@@ -296,15 +295,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const yPos = -(scrolled * speed);
                 const rotation = scrolled * 0.03;
                 element.style.transform = `translate3d(0, ${yPos}px, 0) rotate(${rotation}deg)`;
-            });
-
-            shapes.forEach((shape, index) => {
-                const speed = shape.dataset.speed || 0.2;
-                const yPos = scrolled * (speed * 0.5);
-                const xPos = Math.sin(scrolled * 0.002 + index) * 30;
-                const rotation = scrolled * speed * 0.2;
-                const scale = 1 + Math.sin(scrolled * 0.001 + index) * 0.2;
-                shape.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) rotate(${rotation}deg) scale(${scale})`;
             });
 
             layers.forEach((layer, index) => {
@@ -321,17 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.requestAnimationFrame(() => {
                     const mouseX = (window.innerWidth / 2 - e.clientX) / 25;
                     const mouseY = (window.innerHeight / 2 - e.clientY) / 25;
-
-                    shapes.forEach((shape, index) => {
-                        const speed = (index + 1) * 0.08;
-                        const x = mouseX * speed;
-                        const y = mouseY * speed;
-                        shape.style.transform += ` translate(${x}px, ${y}px)`;
-                    });
-
                     ticking = false;
                 });
-
                 ticking = true;
             }
         });
@@ -343,7 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateParallax(window.pageYOffset);
                     ticking = false;
                 });
-
                 ticking = true;
             }
         });
