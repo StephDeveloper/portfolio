@@ -647,6 +647,10 @@ input, textarea {
     transform: translateY(-3px);
 }
 
+.social-links .theme-toggle-footer {
+    margin-left: 56%;
+}
+
 .footer-bottom {
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -665,6 +669,9 @@ input, textarea {
 
     .social-links {
         justify-content: center;
+    }
+    .social-links .theme-toggle-footer {
+        margin-left: 0;
     }
 }
 
@@ -1541,33 +1548,71 @@ input:focus, textarea:focus {
     }
 }
 
-/* Ajoutez ces styles pour le bouton de changement de thème */
-.theme-toggle {
+/* Styles pour le bouton de retour en haut */
+.scroll-top-btn {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: var(--card-background);
-    border: 2px solid var(--border-color);
+    background: var(--primary-color);
+    color: white;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    box-shadow: 0 4px 6px var(--shadow-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
 }
 
-.theme-toggle:hover {
-    transform: scale(1.1);
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-.theme-toggle i {
+.scroll-top-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.scroll-top-btn i {
     font-size: 1.5rem;
-    color: var(--text-color);
+}
+
+/* Styles pour le toggle de thème dans le footer */
+.theme-toggle-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.theme-toggle-footer:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.theme-toggle-footer i {
+    font-size: 1.3rem;
+    color: #e2e8f0;
+}
+
+/* Suppression des anciens styles du theme-toggle */
+.theme-toggle {
+    display: none;
 }
 
 /* Ajustements pour le mode sombre */

@@ -241,37 +241,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Gestion du thème sombre/clair
     function setupThemeToggle() {
-        // Créer le bouton de changement de thème
-        const themeToggle = document.createElement('button');
-        themeToggle.className = 'theme-toggle';
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        document.body.appendChild(themeToggle);
+        // Créer le bouton de retour en haut de page
+        const scrollTopBtn = document.createElement('button');
+        scrollTopBtn.className = 'scroll-top-btn';
+        scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        document.body.appendChild(scrollTopBtn);
 
-        // Vérifier le thème enregistré
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-
-        // Gérer le changement de thème
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-
-            // Animation du bouton
-            themeToggle.style.transform = 'scale(0.8)';
-            setTimeout(() => {
-                themeToggle.style.transform = 'scale(1)';
-            }, 200);
+        // Gérer le clic sur le bouton de retour en haut
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
+
+        // Afficher/masquer le bouton en fonction du scroll
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Ajouter le toggle de thème dans le footer
+        const socialLinks = document.querySelector('.social-links');
+        if (socialLinks) {
+            const themeToggle = document.createElement('a');
+            themeToggle.href = 'javascript:void(0)';
+            themeToggle.className = 'theme-toggle-footer';
+            themeToggle.title = 'Changer de thème';
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            socialLinks.appendChild(themeToggle);
+
+            // Vérifier le thème enregistré
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+
+            // Gérer le changement de thème
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+
+                // Animation du bouton
+                themeToggle.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    themeToggle.style.transform = 'scale(1)';
+                }, 200);
+            });
+        }
     }
 
     // Mettre à jour l'icône du bouton
     function updateThemeIcon(theme) {
-        const themeToggle = document.querySelector('.theme-toggle');
+        const themeToggle = document.querySelector('.theme-toggle-footer');
         if (themeToggle) {
             themeToggle.innerHTML = theme === 'dark' 
                 ? '<i class="fas fa-sun"></i>' 
